@@ -1,0 +1,61 @@
+# .NET build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# ASP.NET Core secrets
+secrets.json
+
+# IIS Express
+*.vspscc
+*.vssscc
+.vs/
+*.dbmdl
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Logs
+*.log
+
+# Entity Framework
+Migrations/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Node.js (if using frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Publish output
+publish/
+wwwroot/dist/
+wwwroot/node_modules/
+
+# Others
+*.swp
+*.bak
+*.tmp
+*.pid
+
+# OS generated files
+.DS_Store
+Thumbs.db
