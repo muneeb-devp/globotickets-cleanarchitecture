@@ -3,10 +3,14 @@ using GloboTicket.TicketManagement.Application.Contracts.Persistence;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 
-public class CreateEventCommandValidator(IEventRepository eventRepository) : AbstractValidator<CreateEventCommand>
+public class CreateEventCommandValidator : AbstractValidator<CreateEventCommand>
 {
-  public CreateEventCommandValidator()
+  private readonly IEventRepository _eventRepository;
+
+  public CreateEventCommandValidator(IEventRepository eventRepository)
   {
+    _eventRepository = eventRepository;
+
     RuleFor(e => e.Name)
       .NotEmpty().WithMessage("{PropertyName} is required.")
       .NotNull()
@@ -47,7 +51,7 @@ public class CreateEventCommandValidator(IEventRepository eventRepository) : Abs
   private async Task<bool> EventNameAndDateUnique(CreateEventCommand command, CancellationToken cancellationToken)
   {
     return !(
-      await eventRepository.IsEventNameAndDateUnique(command.Name, command.Date, cancellationToken)
+      await _eventRepository.IsEventNameAndDateUnique(command.Name, command.Date, cancellationToken)
     );
   }
 
