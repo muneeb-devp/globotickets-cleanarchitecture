@@ -26,7 +26,7 @@ public class CreateEventCommandHandler(
 
     await emailService.SendEmailAsync(new Models.Email(
       From: "muneeb.devp@gmail.com",
-      To: "muneeb.devp@gmail.com",
+      To: "muneeb.devp@gmail.com", 
       Subject: "New Event Created",
       Body: $"A new event has been created: {@event.Name} on {@event.Date}."
     ));

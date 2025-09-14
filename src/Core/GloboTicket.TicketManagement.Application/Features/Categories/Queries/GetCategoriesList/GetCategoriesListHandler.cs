@@ -8,9 +8,9 @@ namespace GloboTicket.TicketManagement.Application.Features.Categories.Queries.G
 public class GetCategoriesListHandler(
   IMapper mapper,
   ICategoryRepository categoryRepository
-) : IRequestHandler<GetCategoriesList, List<CategoryListVm>>
+) : IRequestHandler<GetCategoriesListQuery, List<CategoryListVm>>
 {
-  public async Task<List<CategoryListVm>> Handle(GetCategoriesList request, CancellationToken cancellationToken)
+  public async Task<List<CategoryListVm>> Handle(GetCategoriesListQuery request, CancellationToken cancellationToken)
   {
     var categories = await categoryRepository.GetAllAsync();
     var sortedCategories = categories.OrderBy(c => c.Name);

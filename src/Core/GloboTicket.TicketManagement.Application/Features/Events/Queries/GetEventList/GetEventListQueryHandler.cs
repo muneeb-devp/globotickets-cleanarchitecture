@@ -10,8 +10,10 @@ public class GetEventListQueryHandler(IEventRepository eventRepository, IMapper 
   public async Task<List<EventListVm>> Handle(GetEventListQuery request, CancellationToken cancellationToken)
   {
     var allEvents = await eventRepository.GetAllAsync();
-    var sortedEvents = allEvents.OrderBy(e => e.Date);
+    var sortedEvents = allEvents.OrderBy(e => e.Date).ToList();
 
-    return mapper.Map<List<EventListVm>>(sortedEvents) ?? Enumerable.Empty<EventListVm>().ToList();
+    var mappedEvents = mapper.Map<List<EventListVm>>(sortedEvents);
+    
+    return mappedEvents ?? Enumerable.Empty<EventListVm>().ToList();
   }
 }

@@ -4,6 +4,7 @@ using GloboTicket.TicketManagement.Application.Features.Categories.Queries.GetCa
 using GloboTicket.TicketManagement.Application.Features.Events;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
+using GloboTicket.TicketManagement.Application.Features.Events.Commands.ExportEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
 using GloboTicket.TicketManagement.Application.ViewModels;
 
@@ -18,6 +19,7 @@ public class MappingProfile : Profile
     CreateMap<Domain.Entities.Event, CreateEventCommand>().ReverseMap();
     CreateMap<Domain.Entities.Event, UpdateEventCommand>().ReverseMap();
     CreateMap<Domain.Entities.Event, DeleteEventCommand>().ReverseMap();
+    CreateMap<Domain.Entities.Event, EventExportDto>().ReverseMap();
 
     CreateMap<Domain.Entities.Category, CategoryDto>().ReverseMap();
     CreateMap<Domain.Entities.Category, CategoryEventListVm>().ReverseMap();

@@ -17,7 +17,7 @@ public class GetEventDetailQueryHandler(
     var eventDetailDto = mapper.Map<EventDetailVm>(@event);
 
     eventDetailDto.Category = mapper.Map<CategoryDto>(category);
-
+    eventDetailDto.Category.Id = eventDetailDto.CategoryId;
     return eventDetailDto;
   }
 }
