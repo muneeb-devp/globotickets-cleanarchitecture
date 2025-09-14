@@ -1,4 +1,3 @@
-
 using GloboTicket.TicketManagement.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +9,7 @@ public class GloboTicketDbContext : DbContext
   public DbSet<Domain.Entities.Category> Categories => Set<Domain.Entities.Category>();
   public DbSet<Domain.Entities.Order> Orders => Set<Domain.Entities.Order>();
 
-
+  public GloboTicketDbContext() {}
   public GloboTicketDbContext(DbContextOptions<GloboTicketDbContext> options) : base(options) { }
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -57,7 +56,7 @@ public class GloboTicketDbContext : DbContext
         Name = "Rock Concert",
         Price = 59.99M,
         Artist = "The Rockers",
-        Date = new DateTime(2025, 11, 15, 20, 0, 0),
+        Date = DateTime.SpecifyKind(new DateTime(2025, 11, 15, 20, 0, 0), DateTimeKind.Utc),
         Description = "An electrifying rock concert featuring The Rockers.",
         ImageUrl = "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
         CategoryId = concertId
@@ -68,7 +67,7 @@ public class GloboTicketDbContext : DbContext
         Name = "Broadway Musical",
         Price = 79.99M,
         Artist = "Broadway Stars",
-        Date = new DateTime(2025, 12, 5, 19, 30, 0),
+        Date = DateTime.SpecifyKind(new DateTime(2025, 12, 5, 19, 30, 0), DateTimeKind.Utc),
         Description = "A spectacular Broadway musical performance.",
         ImageUrl = "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
         CategoryId = musicalId
@@ -79,7 +78,7 @@ public class GloboTicketDbContext : DbContext
         Name = "Shakespeare Play",
         Price = 49.99M,
         Artist = "Classic Theatre Group",
-        Date = new DateTime(2026, 10, 20, 18, 0, 0),
+        Date = DateTime.SpecifyKind(new DateTime(2026, 10, 20, 18, 0, 0), DateTimeKind.Utc),
         Description = "A timeless Shakespeare play performed by the Classic Theatre Group.",
         ImageUrl = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
         CategoryId = playId
@@ -90,7 +89,7 @@ public class GloboTicketDbContext : DbContext
         Name = "Tech Conference",
         Price = 199.99M,
         Artist = "Industry Leaders",
-        Date = new DateTime(2026, 9, 10, 9, 0, 0),
+        Date = DateTime.SpecifyKind(new DateTime(2026, 9, 10, 9, 0, 0), DateTimeKind.Utc),
         Description = "A leading tech conference with talks from industry leaders.",
         ImageUrl = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
         CategoryId = conferenceId
